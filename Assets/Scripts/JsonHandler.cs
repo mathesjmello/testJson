@@ -14,11 +14,14 @@ public class JsonHandler : MonoBehaviour
     private string url = "https://s3-sa-east-1.amazonaws.com/static-files-prod/unity3d/models.json";
     void Start()
     {
+        
         StartCoroutine(Deserialize());
     }
 
     IEnumerator Deserialize()
     {
+        WWW mywww = new WWW(url);
+        yield return mywww;
         UnityWebRequest request = UnityWebRequest.Get(url);
         yield return request.SendWebRequest();
 
@@ -27,14 +30,12 @@ public class JsonHandler : MonoBehaviour
             Debug.Log(request.error);
         }
         else
-        {
-            Root rootClass = JsonConvert.DeserializeObject<Root>(request.downloadHandler.text); 
-            Debug.Log(rootClass);
-           // Debug.Log(request.downloadHandler.text);
-            //Model[] models = JsonHelper.FromJson<Model>(request.downloadHandler.text);
-           // modelsInstance = JsonHelper.FromJson<Model>(request.downloadHandler.text);
-           // Debug.Log(modelsInstance[0].name);
-           // Debug.Log(modelsInstance[1].name);
+        { 
+            string jsonData = System.Text.Encoding.UTF8.GetString(mywww.bytes,3,mywww.bytes.Length -3);
+            Model[] models = JsonHelper.FromJson<Model>(jsonData);
+           //modelsInstance = JsonHelper.FromJson<Model>(request.downloadHandler.text);
+           Debug.Log(models[0]);
+           //Debug.Log(models[0]);
         }
         
     }
