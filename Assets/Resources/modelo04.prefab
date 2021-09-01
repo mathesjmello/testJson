@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5400867833527643696}
   - component: {fileID: 5400867833524252178}
   - component: {fileID: 5400867833525218514}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sofa_Stirling_SL03_Allemuir_Seat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 75e47a0aa51d4d94ca3a57b0a86ca823, type: 2}
+  - {fileID: 2100000, guid: 4f05f5f322f4961479faa0b63c83250d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5400867833527643698}
   - component: {fileID: 5400867833524252180}
   - component: {fileID: 5400867833525218516}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sofa_Stirling_SL03_Allemuir_Feet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 5400867833527643700}
   - component: {fileID: 5400867833524252182}
   - component: {fileID: 5400867833525218518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sofa_Stirling_SL03_Allemuir_Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5400867833527643702}
-  m_Layer: 0
+  - component: {fileID: 6432427616098656148}
+  - component: {fileID: 6432427616098656150}
+  m_Layer: 6
   m_Name: modelo04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,3 +278,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &6432427616098656148
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400867833527153174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7176201, y: 0.9203992, z: 1}
+  m_Center: {x: -0, y: 0.5158702, z: 0}
+--- !u!114 &6432427616098656150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400867833527153174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfdf7a43a0541828cb72b1af3f76d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
+  scale: {x: 0, y: 0, z: 0}
+  selected: 0
