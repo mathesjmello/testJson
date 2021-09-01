@@ -1,35 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class JsonHelper
+    public static class JsonHelper
     {
-        public static List<Player> FromJson<T>(string json)
+        public static T[] FromJson<T>(string json)
         {
             Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(json);
-            return wrapper.Items;
+            return wrapper.models;
         }
 
-        public static string ToJson<T>(List<Player> array)
+        public static string ToJson<T>(T[] array)
         {
             Wrapper<T> wrapper = new Wrapper<T>();
-            wrapper.Items = array;
+            wrapper.models = array;
             return JsonUtility.ToJson(wrapper);
         }
 
-        public static string ToJson<T>(List<Player> array, bool prettyPrint)
+        public static string ToJson<T>(T[] array, bool prettyPrint)
         {
             Wrapper<T> wrapper = new Wrapper<T>();
-            wrapper.Items = array;
+            wrapper.models = array;
             return JsonUtility.ToJson(wrapper, prettyPrint);
         }
 
         [Serializable]
         private class Wrapper<T>
         {
-            public List<Player> Items;
+            public T[] models;
         }
     }
 }

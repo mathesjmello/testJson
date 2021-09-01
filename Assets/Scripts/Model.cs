@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
+    [Serializable]
     public class Model : MonoBehaviour
     {
         public string name;

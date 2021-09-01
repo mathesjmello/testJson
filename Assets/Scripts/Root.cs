@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DefaultNamespace
 {
+    [Serializable]
     public class Root
     {
-        public List<Model> models { get; set; }
+        public List<Model> models;
     }
 }

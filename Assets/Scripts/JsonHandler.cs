@@ -1,28 +1,41 @@
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using DefaultNamespace;
+using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Networking;
+using Object = UnityEngine.Object;
 
 public class JsonHandler : MonoBehaviour
 {
-    private void Update()
+    Model[] modelsInstance = new Model[5];
+    private string url = "https://s3-sa-east-1.amazonaws.com/static-files-prod/unity3d/models.json";
+    void Start()
     {
-        if (Input.GetKey("space"))
-        {
-            TestGet();
-        }
+        StartCoroutine(Deserialize());
     }
 
-    [ContextMenu("test get")]
-    public async void TestGet()
+    IEnumerator Deserialize()
     {
-        
-        string jsonString = "{\r\n    \"Items\": [\r\n        {\r\n            \"playerId\": \"8484239823\",\r\n            \"playerLoc\": \"Powai\",\r\n            \"playerNick\": \"Random Nick\"\r\n        },\r\n        {\r\n            \"playerId\": \"512343283\",\r\n            \"playerLoc\": \"User2\",\r\n            \"playerNick\": \"Rand Nick 2\"\r\n        }\r\n    ]\r\n}";
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        yield return request.SendWebRequest();
 
-        var player = JsonHelper.FromJson<Player>(jsonString);
-            
-            Debug.Log(player[0].playerLoc);
-            Debug.Log(player[1].playerLoc);
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+        }
+        else
+        {
+            Root rootClass = JsonConvert.DeserializeObject<Root>(request.downloadHandler.text); 
+            Debug.Log(rootClass);
+           // Debug.Log(request.downloadHandler.text);
+            //Model[] models = JsonHelper.FromJson<Model>(request.downloadHandler.text);
+           // modelsInstance = JsonHelper.FromJson<Model>(request.downloadHandler.text);
+           // Debug.Log(modelsInstance[0].name);
+           // Debug.Log(modelsInstance[1].name);
+        }
         
     }
 }
