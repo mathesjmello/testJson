@@ -1,30 +1,34 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class JsonHandler : MonoBehaviour
 {
-    public SceneManager sm;
     public bool hasSave;
     private string saveJson;
     private string url = "https://s3-sa-east-1.amazonaws.com/static-files-prod/unity3d/models.json";
-    void Start()
+
+    private void CheckLocalSave()
     {
-        sm = FindObjectOfType<SceneManager>();
-        if (File.Exists(Application.persistentDataPath +"/json.txt"))
+        
+        if (File.Exists(Application.persistentDataPath + "/json.txt"))
         {
-            saveJson = File.ReadAllText(Application.persistentDataPath +"/json.txt");
+            saveJson = File.ReadAllText(Application.persistentDataPath + "/json.txt");
             hasSave = true;
-            
         }
+
         Debug.Log(hasSave);
-        StartCoroutine(Deserialize());
     }
 
-    IEnumerator Deserialize()
+    public IEnumerator Deserialize(Action<List<Model>> callback)
     {
+        CheckLocalSave();
+        Model[] model;
         if (!hasSave)
         {
             var mywww = new WWW(url);
@@ -35,32 +39,21 @@ public class JsonHandler : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log(request.error);
+                callback?.Invoke(null);
+                yield break;
             }
             else
             {
                 string jsonData = System.Text.Encoding.UTF8.GetString(mywww.bytes, 3, mywww.bytes.Length - 3);
-
-                Model[] model = JsonHelper.FromJson<Model>(jsonData);
-                foreach (var m in model)
-                {
-                    var pos = new Vector3((float) m.position[0], (float) m.position[1], (float) m.position[2]);
-                    var rot = new Vector3((float) m.rotation[0], (float) m.rotation[1], (float) m.rotation[2]);
-                    var scl = new Vector3((float) m.scale[0], (float) m.scale[1], (float) m.scale[2]);
-                    sm.SetTransform(m.name, pos, rot, scl);
-                }
+                model = JsonHelper.FromJson<Model>(jsonData);
             }
         }
         else
         {
-            Model[] model = JsonHelper.FromJson<Model>(saveJson);
-            foreach (var m in model)
-            {
-                var pos = new Vector3((float) m.position[0], (float) m.position[1], (float) m.position[2]);
-                var rot = new Vector3((float) m.rotation[0], (float) m.rotation[1], (float) m.rotation[2]);
-                var scl = new Vector3((float) m.scale[0], (float) m.scale[1], (float) m.scale[2]);
-                sm.SetTransform(m.name,pos,rot,scl);
-            }
+            model = JsonHelper.FromJson<Model>(saveJson);
+           
         }
+        callback?.Invoke(model.ToList());
     }
 
     public void SaveFile(string modelsToJson)
@@ -70,5 +63,6 @@ public class JsonHandler : MonoBehaviour
             File.Delete(Application.persistentDataPath +"/json.txt");
         }
         File.WriteAllText(Application.persistentDataPath +"/json.txt",modelsToJson);
+        Debug.Log("saved on: " + Application.persistentDataPath);
     }
 }

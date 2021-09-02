@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace DefaultNamespace
@@ -9,6 +10,8 @@ namespace DefaultNamespace
         public Button Pos, Rot, Sca, Sty, Dup;
         public Mod ModState;
         public ObjectModel actualModel;
+        private SceneManager _sm;
+
         public enum Mod
         {
             None,
@@ -19,6 +22,7 @@ namespace DefaultNamespace
             
         private void Start()
         {
+            _sm = FindObjectOfType<SceneManager>();
             Pos.onClick.AddListener(PosControl);
             Rot.onClick.AddListener(RotControl);
             Sca.onClick.AddListener(ScaControl);
@@ -27,7 +31,7 @@ namespace DefaultNamespace
 
         private void DupControl()
         {
-           Instantiate(actualModel).selected = false;
+            _sm.Duplicate(actualModel);
         }
         
 
