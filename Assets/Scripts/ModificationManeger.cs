@@ -10,7 +10,7 @@ namespace DefaultNamespace
         public int rotationForce = 15;
         public Button Pos, Rot, Sca, Sty, Dup;
         public Mod ModState;
-        public Model actualModel;
+        public ObjectModel actualModel;
         public enum Mod
         {
             None,
@@ -29,7 +29,7 @@ namespace DefaultNamespace
 
         private void DupControl()
         {
-            Instantiate(actualModel).selected = false;
+           Instantiate(actualModel).selected = false;
         }
         
 

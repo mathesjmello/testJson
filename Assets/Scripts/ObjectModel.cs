@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [Serializable]
-    public class Model 
+    public class ObjectModel : MonoBehaviour
     {
         public string name;
         public Vector3 position;
@@ -14,5 +11,4 @@ namespace DefaultNamespace
 
         public bool selected;
     }
-    
 }

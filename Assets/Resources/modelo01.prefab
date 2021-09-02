@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339635513598380432}
   - component: {fileID: 8498842205429703185}
-  - component: {fileID: 43743043}
+  - component: {fileID: 2424629686242600326}
   m_Layer: 6
   m_Name: modelo01
   m_TagString: Untagged
@@ -128,7 +128,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4261167, y: 0.7738585, z: 1}
   m_Center: {x: 0.008531541, y: 0.37607852, z: 0}
---- !u!114 &43743043
+--- !u!114 &2424629686242600326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7802614719671766973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cfdf7a43a0541828cb72b1af3f76d8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 488baf99595041df9698ddd8cd808b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: 

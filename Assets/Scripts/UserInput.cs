@@ -6,9 +6,9 @@ using UnityEngine;
 public class UserInput : MonoBehaviour
 {
     public ModificationManeger mm;
-    public Model selectModel;
+    public ObjectModel selectModel;
 
-    private Model lastModel = null;
+    private ObjectModel lastModel = null;
 
     public int layer_mask; 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class UserInput : MonoBehaviour
 
     void SelectModel(Transform model)
     {
-        selectModel = model.GetComponent<Model>();
+        selectModel = model.GetComponent<ObjectModel>();
         selectModel.selected = true;
         mm.actualModel = selectModel;
         if (lastModel==null)

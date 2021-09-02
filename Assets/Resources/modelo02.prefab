@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 368560178122797355}
   - component: {fileID: 377018401444297321}
   - component: {fileID: 396332025161125325}
-  - component: {fileID: 3972143543765171706}
+  - component: {fileID: 3155168762178422516}
   m_Layer: 6
   m_Name: modelo02
   m_TagString: Untagged
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38183028, y: 0.4413025, z: 0.3776152}
   m_Center: {x: 0.014315106, y: 0.22042234, z: -0.00027763098}
---- !u!114 &3972143543765171706
+--- !u!114 &3155168762178422516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 390825257454883661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cfdf7a43a0541828cb72b1af3f76d8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 488baf99595041df9698ddd8cd808b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
