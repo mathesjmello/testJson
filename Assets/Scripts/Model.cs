@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace DefaultNamespace
 {
     [Serializable]
-    public class Model 
+    public  class Model 
     {
         public string name;
-        public Vector3 position;
-        public Vector3 rotation;
-        public Vector3 scale;
-
-        public bool selected;
+        public double[] position;
+        public double[] rotation;
+        public double[] scale;
     }
     
 }

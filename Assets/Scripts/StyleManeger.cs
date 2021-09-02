@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class StyleManeger : MonoBehaviour
 {
-    public Camera cam;
     public Model SelectedModel;
     public Material chosedMat;
     public Texture strips, circles, triangles;

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace DefaultNamespace
 {
-    public class ModificationManeger: MonoBehaviour
+    public class ModificationManager: MonoBehaviour
     {
         public int rotationForce = 15;
         public Button Pos, Rot, Sca, Sty, Dup;
@@ -58,7 +56,7 @@ namespace DefaultNamespace
                     actualModel.transform.eulerAngles += Vector3.right*rotationForce;
                     break;
                 case Mod.Scale:
-                    actualModel.transform.localScale += Vector3.right/2;
+                    actualModel.transform.localScale += Vector3.right;
                     break;
             }
         }
@@ -73,7 +71,7 @@ namespace DefaultNamespace
                     actualModel.transform.eulerAngles += Vector3.up*rotationForce;
                     break;
                 case Mod.Scale:
-                    actualModel.transform.localScale += Vector3.up/2;
+                    actualModel.transform.localScale += Vector3.up;
                     break;
             }
         }
@@ -88,7 +86,7 @@ namespace DefaultNamespace
                     actualModel.transform.eulerAngles += Vector3.forward*rotationForce;
                     break;
                 case Mod.Scale:
-                    actualModel.transform.localScale += Vector3.forward/2;
+                    actualModel.transform.localScale += Vector3.forward;
                     break;
             }
         }
@@ -103,7 +101,7 @@ namespace DefaultNamespace
                     actualModel.transform.eulerAngles += Vector3.left*rotationForce;
                     break;
                 case Mod.Scale:
-                    actualModel.transform.localScale += Vector3.left/2;
+                    actualModel.transform.localScale += Vector3.left;
                     break;
             }
         }
@@ -118,7 +116,7 @@ namespace DefaultNamespace
                     actualModel.transform.eulerAngles += Vector3.down*rotationForce;
                     break;
                 case Mod.Scale:
-                    actualModel.transform.localScale += Vector3.down/2;
+                    actualModel.transform.localScale += Vector3.down;
                     break;
             }
         }
@@ -133,7 +131,7 @@ namespace DefaultNamespace
                     actualModel.transform.eulerAngles += Vector3.back*rotationForce;
                     break;
                 case Mod.Scale:
-                    actualModel.transform.localScale += Vector3.back/2;
+                    actualModel.transform.localScale += Vector3.back;
                     break;
             }
         }

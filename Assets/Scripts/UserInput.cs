@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
 public class UserInput : MonoBehaviour
 {
-    public ModificationManeger mm;
+    public ModificationManager mm;
     public ObjectModel selectModel;
 
     private ObjectModel lastModel = null;
@@ -15,7 +13,7 @@ public class UserInput : MonoBehaviour
     void Start()
     {
         layer_mask =  LayerMask.GetMask("Collider");
-        mm = FindObjectOfType<ModificationManeger>();
+        mm = FindObjectOfType<ModificationManager>();
     }
 
     // Update is called once per frame
@@ -28,7 +26,7 @@ public class UserInput : MonoBehaviour
             if ( Physics.Raycast (ray,out hit,100.0f,layer_mask))
             {
                 SelectModel (hit.transform);
-                Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
+                Debug.Log("You selected the " + hit.transform.name);
             }
         }
         

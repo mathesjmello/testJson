@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488baf99595041df9698ddd8cd808b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: modelo03
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
   scale: {x: 0, y: 0, z: 0}
