@@ -5,8 +5,8 @@ public class UserInput : MonoBehaviour
 {
     public ModificationManager mm;
     public ObjectModel selectModel;
-
-    private ObjectModel lastModel = null;
+    public GameObject modPainel;
+    private ObjectModel _lastModel = null;
 
     public int layer_mask; 
     // Start is called before the first frame update
@@ -16,7 +16,6 @@ public class UserInput : MonoBehaviour
         mm = FindObjectOfType<ModificationManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,7 +25,6 @@ public class UserInput : MonoBehaviour
             if ( Physics.Raycast (ray,out hit,100.0f,layer_mask))
             {
                 SelectModel (hit.transform);
-                Debug.Log("You selected the " + hit.transform.name);
             }
         }
         
@@ -34,17 +32,18 @@ public class UserInput : MonoBehaviour
 
     void SelectModel(Transform model)
     {
+        modPainel.SetActive(true);
         selectModel = model.GetComponent<ObjectModel>();
         selectModel.selected = true;
         mm.actualModel = selectModel;
-        if (lastModel==null)
+        if (_lastModel==null)
         {
-            lastModel = selectModel;
+            _lastModel = selectModel;
         }
-        if (lastModel!=selectModel)
+        if (_lastModel!=selectModel)
         {
-            lastModel.selected = false;
-            lastModel = selectModel;
+            _lastModel.selected = false;
+            _lastModel = selectModel;
         }
     }
 
