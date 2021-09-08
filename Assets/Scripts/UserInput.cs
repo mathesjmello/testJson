@@ -7,7 +7,8 @@ public class UserInput : MonoBehaviour
     public ObjectModel selectModel;
     public GameObject modPainel;
     private ObjectModel _lastModel = null;
-
+    public GameObject Instruction;
+    
     public int layer_mask; 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class UserInput : MonoBehaviour
 
     void SelectModel(Transform model)
     {
+        if (Instruction.activeSelf)
+        {
+            Instruction.SetActive(false);
+        }
         modPainel.SetActive(true);
         selectModel = model.GetComponent<ObjectModel>();
         selectModel.selected = true;

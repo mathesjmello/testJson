@@ -9,6 +9,7 @@ namespace DefaultNamespace
     public class SceneManager : MonoBehaviour
     {
         public GameObject waitPainel;
+        public GameObject Instructions;
         public JsonHandler jH;
         public Button saveBtn;
         private List<ObjectModel> _instances;
@@ -32,6 +33,7 @@ namespace DefaultNamespace
                 CreateObject(model);
             }
             waitPainel.SetActive(false);
+            Instructions.SetActive(true);
         }
 
         private void CreateObject(Model model)
